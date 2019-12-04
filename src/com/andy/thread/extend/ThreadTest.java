@@ -1,4 +1,4 @@
-package com.andy.thread;
+package com.andy.thread.extend;
 
 class MyThread extends Thread {
     @Override
