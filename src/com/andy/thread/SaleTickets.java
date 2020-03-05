@@ -18,10 +18,10 @@ import static java.lang.Thread.sleep;
 
 class TicketWindow implements Runnable{
     private int ticket = 100;
-    @Override:
+    @Override
     public void run() {
         while (true){
-            synchronized(ticket){
+            synchronized(this){
                 if(ticket > 0){
                     System.out.println(Thread.currentThread().getName() + " sale ticket with num: " +ticket );
                     try {
