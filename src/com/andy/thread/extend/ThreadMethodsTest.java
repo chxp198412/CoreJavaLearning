@@ -41,13 +41,13 @@ public class ThreadMethodsTest {
             }
 
             //测试join
-//            if(i == 20){
-//                try {
-//                    t1.join();
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
+            if(i == 20){
+                try {
+                    t1.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }
