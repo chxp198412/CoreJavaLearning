@@ -21,7 +21,7 @@ class TicketWindow implements Runnable{
     @Override
     public void run() {
         while (true){
-            synchronized(){
+            synchronized(:){
                 if(ticket > 0){
                     System.out.println(Thread.currentThread().getName() + " sale ticket with num: " +ticket );
                     try {
