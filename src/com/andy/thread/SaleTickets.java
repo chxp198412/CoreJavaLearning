@@ -18,7 +18,7 @@ import static java.lang.Thread.sleep;
 
 class TicketWindow implements Runnable{
     private int ticket = 100;
-    @Override
+    @Override:
     public void run() {
         while (true){
             synchronized(ticket){
