@@ -1,4 +1,4 @@
-package com.andy.thread;
+package com.andy.thread.sync;
 
 //class TicketWindow extends Thread{
 //    private static int ticket = 100;
@@ -15,36 +15,36 @@ package com.andy.thread;
 //}
 
 import static java.lang.Thread.sleep;
-//Use synchronized method
-class TicketWindow2 implements Runnable{
+
+class TicketWindow implements Runnable{
     private int ticket = 100;
     @Override
     public void run() {
         while (true){
-            sale();
-
-        }
-    }
-
-    private synchronized void sale(){
-            if(ticket > 0) {
-                System.out.println(Thread.currentThread().getName() + " sale ticket with num: " + ticket);
-                try {
-                    sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+            synchronized(this){
+                if(ticket > 0){
+                    System.out.println(Thread.currentThread().getName() + " sale ticket with num: " +ticket );
+                    try {
+                        sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    ticket--;
+                }else{
+                    break;
                 }
-                ticket--;
             }
+
         }
     }
+}
 
-public class SaleTickets2 {
+public class SaleTickets {
     public static void main(String[] args){
-        TicketWindow2 ticketWindow2 = new TicketWindow2();
-        Thread t1 = new Thread(ticketWindow2);
-        Thread t2 = new Thread(ticketWindow2);
-        Thread t3 = new Thread(ticketWindow2);
+        TicketWindow ticketWindow = new TicketWindow();
+        Thread t1 = new Thread(ticketWindow);
+        Thread t2 = new Thread(ticketWindow);
+        Thread t3 = new Thread(ticketWindow);
 
         t1.setName("Window1");
         t2.setName("Window2");
