@@ -1,4 +1,4 @@
-package com.andy.thread.Practice;
+package com.andy.thread.practice;
 
 import static java.lang.Thread.sleep;
 
