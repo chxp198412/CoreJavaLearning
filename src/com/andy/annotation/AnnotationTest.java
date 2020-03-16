@@ -2,11 +2,22 @@ package com.andy.annotation;
 
 import org.junit.Test;
 import java.lang.annotation.Annotation;
+import java.util.ArrayList;
+import java.util.List;
 
 @MyAnnotation(value = "abc")
+@MyAnnotation(value = "hi")
 class Person{
     public Person() {
     }
+}
+
+class Generic<@MyAnnotation T>{
+
+    public void show(){
+        List<@MyAnnotation  String> test = new ArrayList<>();
+    }
+
 }
 
 public class AnnotationTest {
